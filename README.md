@@ -2,6 +2,7 @@
 
 ForgeMapper is a powerful and extensible object mapping tool designed to transfer properties between source and target objects. It identifies matching properties based on names and compatible types, supporting simple types, complex object structures, new object creation, and collection synchronization.
 
+[![.NET](https://github.com/LaurensVdb/ForgeMapper/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/LaurensVdb/ForgeMapper/actions/workflows/dotnet.yml)
 ---
 
 ## Key Features
