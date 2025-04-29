@@ -51,8 +51,10 @@ var destination = new DestinationClass();
 forgeMapper.Map(source, destination);
 
 Console.WriteLine($"Mapped Destination - Name: {destination.Name}, Age: {destination.Age}");
+```
 
 ### Example 2: Mapping Nested Objects
+```csharp
 var forgeMapper = new ForgeMapper();
 
 var source = new SourceClass
