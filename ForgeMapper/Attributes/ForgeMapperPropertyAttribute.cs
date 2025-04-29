@@ -6,7 +6,6 @@
         public ForgeMapperPropertyAttribute(string forgeMapperProperty)
         {
             this.ForgeMapperProperty = forgeMapperProperty;
-
         }
     }
 }
