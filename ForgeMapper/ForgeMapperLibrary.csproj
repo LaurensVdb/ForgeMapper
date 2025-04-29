@@ -4,6 +4,24 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>Forgemapper</Title>
+    <PackageId>ForgeMapper</PackageId>
+    <Authors>LaurensVdb</Authors>
+    <Description>ForgeMapper is a powerful and extensible object mapping tool designed to transfer properties between source and target objects. It identifies matching properties based on names and compatible types, supporting simple types, complex object structures, new object creation, and collection synchronization.
+
+</Description>
+    <PackageProjectUrl>https://github.com/LaurensVdb/ForgeMapper</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/LaurensVdb/ForgeMapper</RepositoryUrl>
+    <PackageTags>object-mapping;mapper;mapping-library;dotnet-mapper;property-mapping;data-mapping;csharp;collection-mapping;nested-object-mapping;automapper-alternative;object-transformer;dotnet-tool;forgemapper</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
