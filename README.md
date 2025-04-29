@@ -73,9 +73,10 @@ forgeMapper.Map(source, destination);
 
 Console.WriteLine($"Mapped Destination - Name: {destination.Name}, Age: {destination.Age}");
 Console.WriteLine($"Mapped Address - Street: {destination.Address.Street}, City: {destination.Address.City}, PostalCode: {destination.Address.PostalCode}");
-
+```
 
 ### Example 3: Mapping Properties Between Two Collections
+```csharp
 var forgeMapper = new ForgeMapper();
 
 var sourceList = new List<SourceClass>
@@ -91,9 +92,10 @@ foreach (var item in destinationList)
 {
     Console.WriteLine($"Mapped Collection Item - Name: {item.Name}, Age: {item.Age}");
 }
-
+```
 
 ### Example 4: Create and Map a New Object Dynamically
+```csharp
 var forgeMapper = new ForgeMapper();
 
 var source = new SourceClass { Name = "Alice", Age = 25 };
@@ -107,8 +109,10 @@ else
 {
     Console.WriteLine("Failed to create the destination object.");
 }
+```
 
 ### Example 5: Attribute-Based Mapping
+```csharp
 var forgeMapper = new ForgeMapper();
 
 var source = new SourceClassWithAttributes
@@ -152,7 +156,7 @@ public class DestinationClassWithAttributes
 
     public string City { get; set; }
 }
-
+```
 
 
 
