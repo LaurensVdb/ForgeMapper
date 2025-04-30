@@ -3,80 +3,92 @@ using ForgeMapperLibrary.Attributes;
 
 namespace ForgeMapperTesting.AttributeTests
 {
-    public class ForgeMapperPropertyAttributeTest
-    {
+	public class ForgeMapperPropertyAttributeTest
+	{
 
 
-        class A
-        {
-            [ForgeMapperPropertyAttribute("test")]
-            public int IntA { get; set; }
-        }
+		class A
+		{
+			[ForgeMapperPropertyAttribute("test")]
+			public int IntA { get; set; }
+		}
 
-        class B
-        {
-            [ForgeMapperPropertyAttribute("test")]
-            public int IntB { get; set; }
-        }
-
-
-        class C
-        {
-            public int IntC { get; set; }
-        }
-
-        class D
-        {
-            public int test { get; set; }
-        }
+		class B
+		{
+			[ForgeMapperPropertyAttribute("test")]
+			public int IntB { get; set; }
+		}
 
 
-        private readonly ForgeMapper _mapper;
-        public ForgeMapperPropertyAttributeTest()
-        {
-            _mapper = new ForgeMapper();
-        }
-        [Fact]
-        public void AttributeOnBoth()
-        {
-            var a = new A();
-            a.IntA = 1;
+		class C
+		{
+			public int IntC { get; set; }
+		}
 
-            var b = new B();
-            b.IntB = 22;
-
-            _mapper.Map(a, b);
-            Assert.Equal(a.IntA, b.IntB);
-
-        }
+		class D
+		{
+			public int test { get; set; }
+		}
 
 
-        [Fact]
-        public void TestAttributeHasSameNameAsDestination()
-        {
-            var a = new A();
-            a.IntA = 1;
+		private readonly ForgeMapper _mapper;
+		public ForgeMapperPropertyAttributeTest()
+		{
+			_mapper = new ForgeMapper();
+		}
+		[Fact]
+		public void AttributeOnBoth()
+		{
+			var a = new A
+			{
+				IntA = 1
+			};
 
-            var c = new C();
-            c.IntC = 22;
+			var b = new B
+			{
+				IntB = 22
+			};
 
-            _mapper.Map(a, c);
-            Assert.NotEqual(a.IntA, c.IntC);
+			_mapper.Map(a, b);
+			Assert.Equal(a.IntA, b.IntB);
 
-        }
+		}
 
-        [Fact]
-        public void TestAttributeOnlyOnSource()
-        {
-            var a = new A();
-            a.IntA = 1;
 
-            var d = new D();
-            d.test = 22;
+		[Fact]
+		public void TestAttributeHasSameNameAsDestination()
+		{
+			var a = new A
+			{
+				IntA = 1
+			};
 
-            _mapper.Map(a, d);
-            Assert.Equal(a.IntA, d.test);
+			var c = new C
+			{
+				IntC = 22
+			};
 
-        }
-    }
+			_mapper.Map(a, c);
+			Assert.NotEqual(a.IntA, c.IntC);
+
+		}
+
+		[Fact]
+		public void TestAttributeOnlyOnSource()
+		{
+			var a = new A
+			{
+				IntA = 1
+			};
+
+			var d = new D
+			{
+				test = 22
+			};
+
+			_mapper.Map(a, d);
+			Assert.Equal(a.IntA, d.test);
+
+		}
+	}
 }
