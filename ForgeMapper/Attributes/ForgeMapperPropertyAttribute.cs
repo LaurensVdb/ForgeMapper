@@ -1,11 +1,12 @@
 ﻿namespace ForgeMapperLibrary.Attributes
 {
-    public class ForgeMapperPropertyAttribute : Attribute
+    public class ForgeMapperPropertyAttribute : BaseForgeMapperPropertyAttribute
     {
-        public string ForgeMapperProperty { get; }
+
         public ForgeMapperPropertyAttribute(string forgeMapperProperty)
         {
             this.ForgeMapperProperty = forgeMapperProperty;
+            this.IsIgnore = false;
 
         }
     }
