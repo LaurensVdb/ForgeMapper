@@ -17,10 +17,10 @@ namespace ForgeMapperLibrary.Core
         }
 
 
-        private ForgeMapperPropertyAttribute? GetAttribute(PropertyInfo property)
+        private BaseForgeMapperPropertyAttribute? GetAttribute(PropertyInfo property)
         {
-            return (ForgeMapperPropertyAttribute?)property
-                .GetCustomAttributes(typeof(ForgeMapperPropertyAttribute), false)
+            return (BaseForgeMapperPropertyAttribute?)property
+                .GetCustomAttributes(typeof(BaseForgeMapperPropertyAttribute), false)
                 .FirstOrDefault();
         }
     }
