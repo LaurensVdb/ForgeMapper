@@ -16,12 +16,12 @@
                 }
                 return _forgeMapperProperty;
 
-            }
-            set
-            {
-                _forgeMapperProperty = value;
-            }
-        }
-        public bool IsIgnore { get; set; }
-    }
+			}
+			set
+			{
+				_forgeMapperProperty = value;
+			}
+		}
+		public bool IsIgnore { get; set; }
+	}
 }

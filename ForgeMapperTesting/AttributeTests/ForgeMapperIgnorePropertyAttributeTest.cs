@@ -3,56 +3,62 @@ using ForgeMapperLibrary.Attributes;
 
 namespace ForgeMapperTesting.AttributeTests
 {
-    public class ForgeMapperIgnorePropertyAttributeTest
-    {
-        class A
-        {
-            [ForgeMapperIgnoreProperty]
-            public int IntA { get; set; }
-        }
+	public class ForgeMapperIgnorePropertyAttributeTest
+	{
+		class A
+		{
+			[ForgeMapperIgnoreProperty]
+			public int IntA { get; set; }
+		}
 
-        class B
-        {
-            [ForgeMapperIgnoreProperty]
-            public int IntA { get; set; }
-        }
 
-        class C
-        {
-            public int IntA { get; set; }
-        }
 
-        private readonly ForgeMapper _mapper;
-        public ForgeMapperIgnorePropertyAttributeTest()
-        {
-            _mapper = new ForgeMapper();
+		class B
+		{
+			[ForgeMapperIgnoreProperty]
+			public int IntA { get; set; }
+		}
 
-        }
+		class C
+		{
 
-        [Fact]
-        public void TestIgnore()
-        {
-            var a = new A();
-            a.IntA = 1;
+			public int IntA { get; set; }
+		}
 
-            var b = new B();
-            b.IntA = 22;
+		private readonly ForgeMapper _mapper;
+		public ForgeMapperIgnorePropertyAttributeTest()
+		{
+			_mapper = new ForgeMapper();
 
-            _mapper.Map(a, b);
-            Assert.NotEqual(a.IntA, b.IntA);
-        }
+		}
 
-        [Fact]
-        public void TestIgnoreOnSourceOnly()
-        {
-            var a = new A();
-            a.IntA = 1;
 
-            var b = new C();
-            b.IntA = 22;
+		[Fact]
+		public void TestIgnore()
+		{
+			A a = new A();
+			a.IntA = 1;
 
-            _mapper.Map(a, b);
-            Assert.NotEqual(a.IntA, b.IntA);
-        }
-    }
+			B b = new B();
+			b.IntA = 22;
+
+			_mapper.Map(a, b);
+			Assert.NotEqual(a.IntA, b.IntA);
+
+		}
+
+		[Fact]
+		public void TestIgnoreOnSourceOnly()
+		{
+			A a = new A();
+			a.IntA = 1;
+
+			C b = new C();
+			b.IntA = 22;
+
+			_mapper.Map(a, b);
+			Assert.NotEqual(a.IntA, b.IntA);
+
+		}
+	}
 }

@@ -2,61 +2,62 @@
 
 namespace ForgeMapperTesting.ReferenceTypeTests
 {
-    public class IEnumerableMappingTesting
-    {
-        class A
-        {
-            public List<L1> List { get; set; }
-        }
-        class B
-        {
-            public List<L2> List { get; set; }
-        }
-        class L1
-        {
-            public string NameC { get; set; }
-            public int AgeC { get; set; }
-        }
+	public class IEnumerableMappingTesting
+	{
+		class A
+		{
+			public List<L1> List { get; set; }
+		}
+		class B
+		{
+			public List<L2> List { get; set; }
+		}
+		class L1
+		{
+			public string NameC { get; set; }
+			public int AgeC { get; set; }
+		}
 
-        class L2
-        {
-            public string NameC { get; set; }
-            public int AgeC { get; set; }
-        }
+		class L2
+		{
+			public string NameC { get; set; }
+			public int AgeC { get; set; }
+		}
 
-        private readonly ForgeMapper _mapper;
-        public IEnumerableMappingTesting()
-        {
-            _mapper = new ForgeMapper();
-        }
+		private readonly ForgeMapper _mapper;
+		public IEnumerableMappingTesting()
+		{
 
-        [Fact]
-        public void TestListInList()
-        {
-            List<List<int>> listOfListsSource = new List<List<int>>();
+			_mapper = new ForgeMapper();
+		}
 
-            // Add inner lists to the List<List<int>>
-            listOfListsSource.Add(new List<int> { 1, 2, 3 });
-            listOfListsSource.Add(new List<int> { 4, 5, 6 });
-            listOfListsSource.Add(new List<int> { 7, 8, 9 });
+		[Fact]
+		public void TestListInList()
+		{
+			List<List<int>> listOfListsSource = new List<List<int>>();
 
-            List<List<int>> listDestination = new List<List<int>>();
-            _mapper.MapCollection(listOfListsSource, listDestination);
+			// Add inner lists to the List<List<int>>
+			listOfListsSource.Add(new List<int> { 1, 2, 3 });
+			listOfListsSource.Add(new List<int> { 4, 5, 6 });
+			listOfListsSource.Add(new List<int> { 7, 8, 9 });
 
-        }
+			List<List<int>> listDestination = new List<List<int>>();
+			_mapper.MapCollection(listOfListsSource, listDestination);
 
-        [Fact]
-        public void TestList()
-        {
-            List<string> stringSource = ["test", "testB"];
+		}
 
-            List<string> stringDestination = new List<string>();
-            _mapper.MapCollection(stringSource, stringDestination);
-            for (int i = 0; i < stringSource.Count; i++)
-            {
-                Assert.Equal(stringSource[i], stringDestination[i]);
-            }
-        }
+		[Fact]
+		public void TestList()
+		{
+			List<string> stringSource = ["test", "testB"];
+
+			List<string> stringDestination = new List<string>();
+			_mapper.MapCollection(stringSource, stringDestination);
+			for (int i = 0; i < stringSource.Count; i++)
+			{
+				Assert.Equal(stringSource[i], stringDestination[i]);
+			}
+		}
 
 		[Fact]
 		public void TestListFromThis()
@@ -89,23 +90,23 @@ namespace ForgeMapperTesting.ReferenceTypeTests
                 }
             };
 
-            var b = new B();
-            _mapper.Map(a, b);
+			B b = new B();
+			_mapper.Map(a, b);
 
-            for (int i = 0; i < a.List.Count; i++)
-            {
-                Assert.Equal(a.List[0].AgeC, b.List[0].AgeC);
-                Assert.Equal(a.List[0].NameC, b.List[0].NameC);
-            }
-        }
+			for (int i = 0; i < a.List.Count; i++)
+			{
+				Assert.Equal(a.List[0].AgeC, b.List[0].AgeC);
+				Assert.Equal(a.List[0].NameC, b.List[0].NameC);
+			}
+		}
 
-        [Fact]
-        public void TestMapArray()
-        {
-            var a = new int[] { 1, 2, 3, 4, 5 };
-            int[] b = new int[2];
+		[Fact]
+		public void TestMapArray()
+		{
+			int[] a = new int[] { 1, 2, 3, 4, 5 };
+			int[] b = new int[2];
 
-            b = (int[])_mapper.MapCollection(a, b);
-        }
+			b = (int[])_mapper.MapCollection(a, b);
+		}
 	}
 }
