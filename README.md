@@ -223,7 +223,7 @@ public class Program
 
         };
 
-        List<PersonDestination> destinations = sources.MapCollection<List<PersonDestination>>(sources, destinations);
+        List<PersonDestination> destinations = sources.MapCollection<List<PersonDestination>>();
 
         foreach (PersonDestination destination in destinations)
         {
