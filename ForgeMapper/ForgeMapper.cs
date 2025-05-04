@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace ForgeMapperLibrary
 {
-    public class ForgeMapper
+	public class ForgeMapper
     {
         private MatchProperties _propertyMatcher;
         private MapReferenceType _mapReferenceType;
@@ -25,6 +25,7 @@ namespace ForgeMapperLibrary
                 typeof(Guid),
             });
         }
+
         /// <summary>
         /// Maps the properties of the source object <paramref name="source"/> to the target object <paramref name="destination"/>.
         /// </summary>
@@ -87,8 +88,7 @@ namespace ForgeMapperLibrary
             return _mapReferenceType.MapCollection(source, destination);
         }
 
-
-        private void MapProperties(object source, object destination, PropertyInfo sourceProp, PropertyInfo destProp)
+		private void MapProperties(object source, object destination, PropertyInfo sourceProp, PropertyInfo destProp)
         {
 
             if (TypeMappingPolicy.CanMapDirectly(sourceProp, destProp))

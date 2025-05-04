@@ -11,8 +11,6 @@ namespace ForgeMapperTesting.AttributeTests
             public int IntA { get; set; }
         }
 
-
-
         class B
         {
             [ForgeMapperIgnoreProperty]
@@ -21,7 +19,6 @@ namespace ForgeMapperTesting.AttributeTests
 
         class C
         {
-
             public int IntA { get; set; }
         }
 
@@ -31,7 +28,6 @@ namespace ForgeMapperTesting.AttributeTests
             _mapper = new ForgeMapper();
 
         }
-
 
         [Fact]
         public void TestIgnore()
@@ -44,7 +40,6 @@ namespace ForgeMapperTesting.AttributeTests
 
             _mapper.Map(a, b);
             Assert.NotEqual(a.IntA, b.IntA);
-
         }
 
         [Fact]
@@ -58,7 +53,6 @@ namespace ForgeMapperTesting.AttributeTests
 
             _mapper.Map(a, b);
             Assert.NotEqual(a.IntA, b.IntA);
-
         }
     }
 }

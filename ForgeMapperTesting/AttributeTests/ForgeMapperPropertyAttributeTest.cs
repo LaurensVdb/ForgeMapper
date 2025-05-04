@@ -5,8 +5,6 @@ namespace ForgeMapperTesting.AttributeTests
 {
     public class ForgeMapperPropertyAttributeTest
     {
-
-
         class A
         {
             [ForgeMapperPropertyAttribute("test")]
@@ -19,7 +17,6 @@ namespace ForgeMapperTesting.AttributeTests
             public int IntB { get; set; }
         }
 
-
         class C
         {
             public int IntC { get; set; }
@@ -30,12 +27,12 @@ namespace ForgeMapperTesting.AttributeTests
             public int test { get; set; }
         }
 
-
         private readonly ForgeMapper _mapper;
         public ForgeMapperPropertyAttributeTest()
         {
             _mapper = new ForgeMapper();
         }
+
         [Fact]
         public void AttributeOnBoth()
         {
@@ -47,9 +44,7 @@ namespace ForgeMapperTesting.AttributeTests
 
             _mapper.Map(a, b);
             Assert.Equal(a.IntA, b.IntB);
-
         }
-
 
         [Fact]
         public void TestAttributeHasSameNameAsDestination()
@@ -62,7 +57,6 @@ namespace ForgeMapperTesting.AttributeTests
 
             _mapper.Map(a, c);
             Assert.NotEqual(a.IntA, c.IntC);
-
         }
 
         [Fact]
@@ -76,7 +70,6 @@ namespace ForgeMapperTesting.AttributeTests
 
             _mapper.Map(a, d);
             Assert.Equal(a.IntA, d.test);
-
         }
     }
 }

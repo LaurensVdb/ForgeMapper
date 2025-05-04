@@ -1,6 +1,7 @@
 ﻿namespace ForgeMapperLibrary.Attributes
 {
-    public abstract class BaseForgeMapperPropertyAttribute : Attribute
+	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Property)]
+	public abstract class BaseForgeMapperPropertyAttribute : Attribute
     {
         private string _forgeMapperProperty = "";
         public string ForgeMapperProperty
