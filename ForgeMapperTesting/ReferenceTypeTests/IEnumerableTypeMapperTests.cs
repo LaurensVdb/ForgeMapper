@@ -2,7 +2,7 @@
 
 namespace ForgeMapperTesting.ReferenceTypeTests
 {
-	public class IEnumerableMappingTesting
+	public class IEnumerableMappingTests
 	{
 		class A
 		{
@@ -25,9 +25,8 @@ namespace ForgeMapperTesting.ReferenceTypeTests
 		}
 
 		private readonly ForgeMapper _mapper;
-		public IEnumerableMappingTesting()
+		public IEnumerableMappingTests()
 		{
-
 			_mapper = new ForgeMapper();
 		}
 
