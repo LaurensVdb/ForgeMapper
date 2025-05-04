@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace ForgeMapperLibrary
 {
-	public class ForgeMapper : IForgeMapper
+	public sealed class ForgeMapper : IForgeMapper
 	{
 		private readonly MatchProperties _propertyMatcher;
 		private readonly MapReferenceType _mapReferenceType;
@@ -73,7 +73,6 @@ namespace ForgeMapperLibrary
 		public Destination? CreateObject<Destination>(object source)
 		{
 			return _mapCreateObject.CreateObject<Destination>(source);
-
 		}
 
 		/// <summary>
