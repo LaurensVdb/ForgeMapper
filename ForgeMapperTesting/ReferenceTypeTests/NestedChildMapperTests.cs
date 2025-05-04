@@ -24,9 +24,8 @@ namespace ForgeMapperTesting.ReferenceTypeTest
 		public NestedChildMapperTests()
 		{
 			_mapper = new ForgeMapper();
-
-
 		}
+
 		[Fact]
 		public void TestOneNestedObject()
 		{

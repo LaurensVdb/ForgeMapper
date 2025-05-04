@@ -1,10 +1,11 @@
 ﻿using ForgeMapperLibrary.Core;
+using ForgeMapperLibrary.Interfaces;
 using System.Collections;
 using System.Reflection;
 
 namespace ForgeMapperLibrary
 {
-	public class ForgeMapper
+	public class ForgeMapper : IForgeMapper
 	{
 		private readonly MatchProperties _propertyMatcher;
 		private readonly MapReferenceType _mapReferenceType;
