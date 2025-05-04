@@ -2,30 +2,30 @@
 
 namespace ForgeMapperLibrary.Core
 {
-    public class TypeMappingPolicy
-    {
-        private readonly HashSet<Type> _supportedDirectMappingTypes;
+	public class TypeMappingPolicy
+	{
+		private readonly HashSet<Type> _supportedDirectMappingTypes;
 
-        public TypeMappingPolicy(HashSet<Type> types)
-        {
-            // Initialize the supported types
-            _supportedDirectMappingTypes = types;
+		public TypeMappingPolicy(HashSet<Type> types)
+		{
+			// Initialize the supported types
+			_supportedDirectMappingTypes = types;
 
 
-        }
+		}
 
-        public bool CanMapDirectly(PropertyInfo sourceProp, PropertyInfo destProp)
-        {
+		public bool CanMapDirectly(PropertyInfo sourceProp, PropertyInfo destProp)
+		{
 
-            return sourceProp.PropertyType == destProp.PropertyType
-                   && (sourceProp.PropertyType.IsValueType || _supportedDirectMappingTypes.Contains(sourceProp.PropertyType));
-        }
+			return sourceProp.PropertyType == destProp.PropertyType
+				   && (sourceProp.PropertyType.IsValueType || _supportedDirectMappingTypes.Contains(sourceProp.PropertyType));
+		}
 
-        public bool IsTypeInPolicy(Type type)
-        {
+		public bool IsTypeInPolicy(Type type)
+		{
 
-            return _supportedDirectMappingTypes.Contains(type) || type.IsValueType;
-        }
-    }
+			return _supportedDirectMappingTypes.Contains(type) || type.IsValueType;
+		}
+	}
 
 }
