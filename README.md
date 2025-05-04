@@ -128,7 +128,7 @@ public class Program
 }
 ```
 
-### Example 3: Mapping Properties Between Two Collections
+### Example 3a: Mapping Properties Between Two Collections
 ```csharp
 using ForgeMapperLibrary;
 public class Program
@@ -172,6 +172,58 @@ public class Program
         List<PersonDestination> destinations = new List<PersonDestination>();
 
         forgeMapper.MapCollection(sources, destinations);
+
+        foreach (PersonDestination destination in destinations)
+        {
+            Console.WriteLine($"{destination.Name} {destination.Age}");
+        }
+        //output:Peter 22
+        //       Luke 30
+    }
+}
+```
+
+
+### Example 3b: Mapping Properties Between Two Collections with extension method (without creating forgemapper)
+```csharp
+using ForgeMapperLibrary;
+public class Program
+{
+    class PersonSource
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+    }
+
+
+    class PersonDestination
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+    }
+
+
+    private static void Main(string[] args)
+    {
+        List<PersonSource> sources = new List<PersonSource>()
+        {
+             new PersonSource()
+             {
+                Age = 22,
+                Name = "Peter"
+             },
+              new PersonSource()
+             {
+                Age = 30,
+                Name = "Luke"
+             }
+
+
+        };
+
+        List<PersonDestination> destinations = sources.MapCollection<List<PersonDestination>>();
 
         foreach (PersonDestination destination in destinations)
         {

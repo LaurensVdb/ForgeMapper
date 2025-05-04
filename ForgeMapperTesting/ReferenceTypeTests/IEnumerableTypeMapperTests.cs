@@ -60,20 +60,35 @@ namespace ForgeMapperTesting.ReferenceTypeTests
 		}
 
 		[Fact]
-		public void TestListInClass()
+		public void TestListFromThis()
 		{
-			A a = new A();
-			a.List = new List<L1>()
+			List<string> stringSource = ["test", "testB"];
+
+            var stringDestination = stringSource.MapCollection<List<string>>();
+
+            Assert.NotNull(stringDestination);
+
+			for (int i = 0; i < stringSource.Count; i++)
 			{
-				new L1()
-				{
-					AgeC = 1,NameC="test"
-				},
-				   new L1()
-				{
-					AgeC = 2,NameC="test2"
-				}
-			};
+				Assert.Equal(stringSource[i], stringDestination[i]);
+			}
+		}
+
+		[Fact]
+        public void TestListInClass()
+        {
+            var a = new A();
+            a.List = new List<L1>()
+            {
+                new L1()
+                {
+                    AgeC = 1,NameC="test"
+                },
+                   new L1()
+                {
+                    AgeC = 2,NameC="test2"
+                }
+            };
 
 			B b = new B();
 			_mapper.Map(a, b);
