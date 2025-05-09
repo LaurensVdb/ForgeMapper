@@ -5,11 +5,12 @@ namespace ForgeMapperLibrary.Core
 	public class TypeMappingPolicy
 	{
 		private readonly HashSet<Type> _supportedDirectMappingTypes;
-
+		private readonly BasicTypeConversion basicTypeConversion;
 		public TypeMappingPolicy(HashSet<Type> types)
 		{
 			// Initialize the supported types
 			_supportedDirectMappingTypes = types;
+			basicTypeConversion = new BasicTypeConversion();
 
 
 		}
@@ -17,7 +18,7 @@ namespace ForgeMapperLibrary.Core
 		public bool CanMapDirectly(PropertyInfo sourceProp, PropertyInfo destProp)
 		{
 
-			return sourceProp.PropertyType == destProp.PropertyType
+			return (sourceProp.PropertyType == destProp.PropertyType || basicTypeConversion.IsConversion(sourceProp))
 				   && (sourceProp.PropertyType.IsValueType || _supportedDirectMappingTypes.Contains(sourceProp.PropertyType));
 		}
 
