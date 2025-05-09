@@ -6,10 +6,6 @@ namespace ForgeMapperTesting.Conversion
 {
 	public class ConversionTests
 	{
-		public class Test
-		{
-			Func<int, int> MyFync = x => x * 2;
-		}
 		public class IntToString : ConversionProvider<int, string>
 		{
 			public override Func<int, string> Conversion { get; } = x => x.ToString();
