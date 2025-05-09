@@ -41,7 +41,6 @@ An attribute that explicitly ignores a propertie between source and destination.
 ### ForgeMapperBasicTypeConversionAttribute
 An attribute for simple type conversion and data manipulation.
 
---
 
 ## Getting Started
 
@@ -339,7 +338,7 @@ internal class Program
 }
 ```
 
-### Example 7: ForgeMapperBasicTypeConversionAttribute
+### Example 7: Attribute-Based property conversion 
 ```csharp
 using ForgeMapperLibrary;
 using ForgeMapperLibrary.Attributes;
